@@ -1,0 +1,5 @@
+oauth:
+  url: /oauth/:action.:sf_format/*
+  param: { module: oauth, sf_format: json} #sf_format here json is selected by default
+  requirements:
+    sf_format: (?:json|xml)

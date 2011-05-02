@@ -1,0 +1,46 @@
+<?php
+
+
+class sfOauthClearNonceTask extends sfBaseTask
+{
+  /**
+   * @see sfTask
+   */
+  protected function configure()
+  {
+
+    $this->addOptions(array(
+      new sfCommandOption('application',null, sfCommandOption::PARAMETER_OPTIONAL, 'The application name', 'frontend'),
+      new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
+    ));
+
+    $this->namespace = 'oauth';
+    $this->name = 'clear-tokens';
+    $this->briefDescription = 'Clear nonces table';
+
+    $this->detailedDescription = <<<EOF
+The [guard:add-group|INFO] task cleans odd nonces:
+
+  [./symfony oauth:clear-nonce|INFO]
+
+EOF;
+  }
+
+  /**
+   * @see sfTask
+   */
+  protected function execute($arguments = array(), $options = array())
+  {
+    $databaseManager = new sfDatabaseManager($this->configuration);
+    $oauth2 = new sfOauth2Server();
+    $accessTokenLife = $oauth2->getVariable('access_token_lifetime');
+    $authCodeLife = $oauth2->getVariable('auth_code_lifetime');
+
+	$this->logSection('oauth 2.0', sprintf('auth code aged over %d secondes will be deleted ...', $authCodeLife));
+	$this->logSection('oauth 2.0', sprintf('acess tokens aged over %d secondes will be deleted ...', $accessTokenLife));
+	
+
+	}
+	 $this->logSection('oauth', sprintf('%d tokens have been deleted', $counter));
+  }
+}

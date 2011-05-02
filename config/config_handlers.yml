@@ -1,0 +1,7 @@
+modules/*/config/oauth.yml:
+  class: sfOauthServerConfigHandler
+  file: %SF_PLUGINS_DIR%/sfOauthServerPlugin/config/sfOauthServerConfigHandler.class.php
+
+config/filters.yml:
+  class: sfOauthServerConfigFilterHandler
+  file: %SF_PLUGINS_DIR%/sfOauthServerPlugin/config/sfOauthServerConfigFilterHandler.class.php

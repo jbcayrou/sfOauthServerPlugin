@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfOauthServerConsumer
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             true
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_oauth_server_consumer_sfOauthAdmin  
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title:   Consumer list
+        display: [=name,consumer_key,consumer_secret, created_at]
+      filter:  ~
+      form:
+        class: sfOauthAdminConsumerForm
+      edit:
+        title: Editing Consumer "%%name%%"
+      new:
+        title: New Consumer

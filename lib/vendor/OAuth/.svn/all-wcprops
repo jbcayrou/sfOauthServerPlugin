@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/1262/code/php
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/622/code/php/LICENSE.txt
+END
+OAuthTests.xml
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/1013/code/php/OAuthTests.xml
+END
+CHANGELOG.txt
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/1262/code/php/CHANGELOG.txt
+END
+OAuth.php
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/1261/code/php/OAuth.php
+END
+OAuth_TestServer.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/527/code/php/OAuth_TestServer.php
+END

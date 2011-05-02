@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/1261/code/php/tests
+END
+OAuthSignatureMethodHmacSha1Test.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1012/code/php/tests/OAuthSignatureMethodHmacSha1Test.php
+END
+OAuthRequestTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1261/code/php/tests/OAuthRequestTest.php
+END
+OAuthConsumerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1012/code/php/tests/OAuthConsumerTest.php
+END
+OAuthSignatureMethodPlaintextTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/1012/code/php/tests/OAuthSignatureMethodPlaintextTest.php
+END
+Mock_OAuthSignatureMethod_RSA_SHA1.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/1012/code/php/tests/Mock_OAuthSignatureMethod_RSA_SHA1.php
+END
+OAuthUtilTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1230/code/php/tests/OAuthUtilTest.php
+END
+Mock_OAuthDataStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1233/code/php/tests/Mock_OAuthDataStore.php
+END
+OAuthTokenTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1012/code/php/tests/OAuthTokenTest.php
+END
+Mock_OAuthBaseStringRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1012/code/php/tests/Mock_OAuthBaseStringRequest.php
+END
+OAuthSignatureMethodRsaSha1Test.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1012/code/php/tests/OAuthSignatureMethodRsaSha1Test.php
+END
+OAuthServerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1162/code/php/tests/OAuthServerTest.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/1261/code/php/tests/common.php
+END

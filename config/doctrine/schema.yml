@@ -1,0 +1,76 @@
+sfOauthServerConsumer:
+  actAs: { Timestampable: ~ }
+  columns:
+    consumer_key: {type: string(40), notnull: true, unique:true}
+    consumer_secret: {type: string(40), notnull: true, unique:true}
+    name : {type : string(256), notnull:true}
+    description: { type: text, notnull : true}
+    protocole: {type: integer, default: 1 }
+    base_domain: {type: string(256) }
+    callback: {type: string(256) }
+    scope: {type : string(256), notnull:false}
+ 
+sfOauthServerRequestToken:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  actAs:
+    Timestampable:
+      updated: 
+        disabled: true
+  columns:
+    token: {type: string(40), notnull: true, unique:true}
+    secret: {type: string(40), notnull: false}
+    consumer_id: {type: integer, notnull: true}
+    user_id: {type: integer}
+    callback: {type: string(256) }
+    scope: {type : string(256), notnull:false}
+    expires: { type: integer}
+    protocole: {type: integer, default: 1 }
+  relations:
+    User: {class: sfGuardUser, local: user_id, foreign: id, onDelete : cascade}
+    Consumer: {class: sfOauthServerConsumer, local: consumer_id, foreign: id, onDelete : cascade}
+    
+sfOauthServerAccessToken:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  actAs:
+    Timestampable:
+      updated: 
+        disabled: true
+  columns:
+    token: {type: string(40), notnull: true, unique:true}
+    secret: {type: string(40), notnull: false}
+    consumer_id: {type: integer, notnull: true}
+    user_id: {type: integer, notnull: false}
+    scope: {type: string(256), notnull:false}
+    expires: { type: integer}
+    protocole: {type: integer, default: 1 }
+  relations:
+    User: {class: sfGuardUser, local: user_id, foreign: id, onDelete : cascade}
+    Consumer: {class: sfOauthServerConsumer, local: consumer_id, foreign: id, onDelete : cascade}
+    
+ # sfOauthServerNonce protection againts hakers
+sfOauthServerNonce:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  actAs:
+    Timestampable:
+      updated: 
+        disabled: true
+  columns:
+    nonce: {type: string(40), notnull: true, unique:true}
+
+sfOauthServerUserScope:
+  columns:
+    user_id: {type: integer, notnull: true}
+    consumer_id: {type: integer, notnull: true}
+    scope: {type: string(256), notnull:false}
+  relations:
+    User: {class: sfGuardUser, local: user_id, foreign: id, onDelete : cascade}
+    Consumer: {class: sfOauthServerConsumer, local: consumer_id, foreign: id, onDelete : cascade}

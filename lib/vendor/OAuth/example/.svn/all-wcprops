@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/1007/code/php/example
+END
+client.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/600/code/php/example/client.php
+END
+common.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/528/code/php/example/common.inc.php
+END
+SimpleOAuthDataStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1007/code/php/example/SimpleOAuthDataStore.php
+END
+access_token.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/524/code/php/example/access_token.php
+END
+echo_api.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/524/code/php/example/echo_api.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/530/code/php/example/index.php
+END
+request_token.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/524/code/php/example/request_token.php
+END

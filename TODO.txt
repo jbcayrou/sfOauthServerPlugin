@@ -1,0 +1,5 @@
+* Check the base domain for the callback and redirect_uri
+
+* Add an owner or several for cusumer
+
+* Add a panel for users to manage applications accepted
