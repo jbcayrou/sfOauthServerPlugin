@@ -1,3 +1,4 @@
+<h1>Applications that you have accepted</h1>
 <?php
 foreach($applications as $application)
 {
