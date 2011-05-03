@@ -11,6 +11,19 @@
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class PluginsfOauthServerUserScope extends BasesfOauthServerUserScope
-{
+ {
+
+  public function preDelete($event)
+  {
+    // We have to delete also the current access tokens and code tokens
+    $tokens = Doctrine::getTable('sfOauthServerAccessToken')->createQuery('t')->where('t.consumer_id = ?',$this->getConsumerId())->andWhere('t.user_id = ?',$this->getUserId())->execute();
+    foreach ($tokens as $token)
+      $token->delete();
+
+    $tokens = Doctrine::getTable('sfOauthServerRequestToken')->createQuery('t')->where('t.consumer_id = ?',$this->getConsumerId())->andWhere('t.user_id = ?',$this->getUserId())->execute();
+    foreach ($tokens as $token)
+      $token->delete();
+    
+  }
 
 }
