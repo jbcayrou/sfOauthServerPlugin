@@ -1,0 +1,59 @@
+sfOauthServer with OAuth 1.0 protocole.
+
+Step 1 : User is on the consumer application.
+Step 2 : the customer asks a request token
+	
+	Parameters :
+		* oauth_consumer_key
+		* oauth_nonce
+		* oauth_signatuure
+		* oauth_signature_method
+		* oauth_timestamp
+		* oauth_version
+
+		Notice : sfOauthServerPlugin use the HMAC-SHA1 method for signature. But you can add an other method easily ( Method_PLAINTEXT or Method_RSA_SHA)
+
+		example of request :
+			oauth/requestToken?oauth_consumer_key=4088265c7ce0249c187cc82af0b5010f2757ddb4&oauth_nonce=9c6f9413c8fba5075341a714ac592cd6&oauth_signature=TIWhq%2B7qWEn%2BIts9sS0kOgmz9zU%3D&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1304693985&oauth_version=1.0
+		
+		return : {"key":"af59b4299eb46cf40c7736bed964e5d6","secret":"437d7d3234d906adcf49b4a264a2cee9"}
+		so your request_key is af59b4299eb46cf40c7736bed964e5d6 and your secret one is 437d7d3234d906adcf49b4a264a2cee9
+	
+	You have a request token but it is unauthorised.
+	
+Step 3 : Redirect user brower to "application/authorize"
+	with parameters : 
+		* oauth_callback
+		* oauth_consumer_key
+		* oauth_token
+Step 6-7:
+	user access or deny access
+
+Step 9 : user brower is redirected on the concumer application and now the request token is authorised.
+Step 10 :
+	
+	Request to get the access token.
+	
+	Parameters :
+		* oauth_callback
+		* oauth_consumer_key
+		* oauth_token => it's the request token
+		* oauth_nonce
+		* oauth_signatuure
+		* oauth_signature_method
+		* oauth_timestamp
+		* oauth_version
+
+	return : {"key":"xxxxxxxxxxxxxxxxxxxx","secret":"xxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+
+Step 12 :
+	You are ready to make API Call.
+	parameter : 
+		* oauth_callback
+		* oauth_consumer_key
+		* oauth_token => it's the access token
+		* oauth_nonce
+		* oauth_signatuure
+		* oauth_signature_method
+		* oauth_timestamp
+		* oauth_version

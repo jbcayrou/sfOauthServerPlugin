@@ -1,0 +1,26 @@
+sfOauthServer with OAuth 2.0 protocole.
+
+WARNING : user https connection for exchanging token, because secret token are sended.
+
+Step 2 : Redirect user brower to "application/authorize"
+	with params : 
+		* cliend_id
+		* redirect_uri => it's the callback
+
+Step 7 : after authorize the applicaiton, user will be redirect to the redirect_uri with the parameter : code 
+
+Step 8 : Request for the acces token
+	params:
+	* grant_type=authorisation_code
+	* clien_id ( it is the consumer_key )
+	* client_secret (it is the consumer secret)
+	* code
+	* uri_redirect
+
+	it will return a json like : {"access_token":"xxxxxxxxxxxxxxxxxxxxx","expires_in":3600,"scope":null}
+
+Step 10 :
+	You are ready to make API Call.
+	params:
+	*acess_token
+
