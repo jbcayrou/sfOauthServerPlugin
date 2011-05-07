@@ -9,6 +9,10 @@ sfOauthServerConsumer:
     base_domain: {type: string(256) }
     callback: {type: string(256) }
     scope: {type : string(256), notnull:false}
+    number_query: { type : integer, default: 0 }
+  relations:
+    Developers: { class: sfGuardUser,refClass: sfOauthServerDeveloper,local: consumer_id, foreign: user_id, foreignAlias: Applications}
+    
  
 sfOauthServerRequestToken:
   options:
@@ -31,7 +35,7 @@ sfOauthServerRequestToken:
   relations:
     User: {class: sfGuardUser, local: user_id, foreign: id, onDelete : cascade}
     Consumer: {class: sfOauthServerConsumer, local: consumer_id, foreign: id, onDelete : cascade}
-    
+
 sfOauthServerAccessToken:
   options:
     symfony:
@@ -74,3 +78,20 @@ sfOauthServerUserScope:
   relations:
     User: {class: sfGuardUser, local: user_id, foreign: id, onDelete : cascade}
     Consumer: {class: sfOauthServerConsumer, local: consumer_id, foreign: id, onDelete : cascade}
+  
+sfOauthServerDeveloper:
+  columns:
+    consumer_id: {type: integer, notnull: true}
+    user_id: {type: integer, notnull: true}
+    admin: {type: boolean, default: false}
+  relations:
+    Consumer:
+      class: sfOauthServerConsumer
+      local: consumer_id
+      foreign: id
+      onDelete: cascade
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      onDelete: cascade

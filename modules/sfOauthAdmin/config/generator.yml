@@ -16,7 +16,7 @@ generator:
       fields:  ~
       list:
         title:   Consumer list
-        display: [=name,consumer_key,consumer_secret, created_at]
+        display: [=name,consumer_key,consumer_secret,number_query, created_at]
       filter:  ~
       form:
         class: sfOauthAdminConsumerForm

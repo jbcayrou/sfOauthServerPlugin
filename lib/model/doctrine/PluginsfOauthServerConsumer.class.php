@@ -24,4 +24,56 @@ abstract class PluginsfOauthServerConsumer extends BasesfOauthServerConsumer
 		return $ret;
 	}
 	
+	/**
+	 * Check if the user is one of developers
+	 * @param integer $userId
+	 * @return boolean
+	 */
+	public function hasDeveloper($userId)
+	{
+	  foreach ($this->getDevelopers() as $developer)
+	    if ($developer->getId()==$userId)
+	      return true;
+	  return false;
+	}
+	/**
+	 * Add a developer
+	 * @param integer $userId
+	 * @param boolean $admin
+	 */
+	public function addDeveloper($userId,$admin = false)
+	{
+	  if (!$this->hasDeveloper($userId))
+	    {
+	      $dev = new sfOauthServerDeveloper();
+	      $dev->setConsumerId($this->getId());
+	      $dev->setUserId($userId);
+	      $dev->getAdmin($admin);
+	      $dev->save();
+	    }
+	}
+	/**
+	 * Del a developer
+	 * @param integer $userId
+	 */
+	public function delDeveloper($userId)
+	{
+	  if ($this->hasDeveloper($userId))
+	    {
+	      $developer = Doctrine::getTable('sfOauthServerDeveloper')->createQuery('d')->where('d.consumer_id = ? AND d.user_id = ?',array($this->getId(),$userId))->fetchOne();
+	      if ($developer)
+		$developer->delete();
+	    }
+	}
+	
+	public function getNumberUsers()
+	{
+	  return Doctrine::getTable('sfOauthServerUserScope')->findByConsumerId($this->getId())->count();
+	}
+	
+	public function increaseNumberQuery()
+	{
+	  $this->setNumberQuery($this->getNumberQuery()+1);
+	  $this->save();
+	}
 }

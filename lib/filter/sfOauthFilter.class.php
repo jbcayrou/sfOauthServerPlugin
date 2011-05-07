@@ -48,7 +48,9 @@ class sfOauthFilter extends sfFilter
 	$token = $request->getParameter('access_token',$request->getParameter('oauth_token'));
 	$sfToken = Doctrine::getTable('sfOauthServerAccessToken')->findOneByToken($token);
 	$user = $sfToken->getUser(); // Select user concerned
-	
+
+	$consumer = $sfToken->getConsumer();
+	$consumer->increaseNumberQuery();
 	$request->setParameter('user',$user); // save this user in a parameter 'user'
 
     $credential = $sfoauth->getOauthCredential();
