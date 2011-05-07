@@ -1,0 +1,7 @@
+<?php
+foreach($applications as $application)
+{
+  echo $application->getConsumer()->getName().', its permissions :'.$$application->getScope();
+  echo '<br />';
+}
+?>
