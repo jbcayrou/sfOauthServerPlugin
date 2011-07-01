@@ -17,7 +17,7 @@ class oauthActions extends sfActions
 	{	
 				
 		$oauthServer = new sfOauthServer(new sfOAuthDataStore());
-		$req = OAuthRequest::from_request();
+		$req = OAuthRequest::from_request(NULL,$request->getUri());
 		$this->token = $oauthServer->fetch_request_token($req);
 
 		return $this->renderText(json_encode($this->token));
