@@ -148,5 +148,3 @@ class sfOAuthDataStore extends OAuthDataStore {
 		return $accesstoken;
     }
 }
-?>
-
