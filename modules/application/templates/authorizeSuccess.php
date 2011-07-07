@@ -1,3 +1,5 @@
+<?php use_helper('I18N'); ?>
+
 <?php
 slot('title', __("Autorisation d'application"));
 ?>

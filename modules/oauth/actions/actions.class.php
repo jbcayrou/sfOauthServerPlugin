@@ -15,13 +15,12 @@ class oauthActions extends sfActions
 	 */
 	public function executeRequestToken(sfWebRequest $request)
 	{	
-				
 		$oauthServer = new sfOauthServer(new sfOAuthDataStore());
 		$req = OAuthRequest::from_request(NULL,$request->getUri());
 		$this->token = $oauthServer->fetch_request_token($req);
 
-		return $this->renderText(json_encode($this->token));
-		//return $this->setTemplate('token');
+		$this->setTemplate('token');
+        return sfView::SUCCESS;
 	}
 		
 	 /*

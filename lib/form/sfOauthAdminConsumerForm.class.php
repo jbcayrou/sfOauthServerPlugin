@@ -10,6 +10,6 @@ class sfOauthAdminConsumerForm extends SfOauthServerConsumerForm
 
 		$this->validatorSchema['protocole'] = new sfValidatorChoice(array('choices' => array(1,2)));
 	}
-	
-	
+
+
 }
