@@ -28,13 +28,6 @@ class sfOauthServerPluginConfiguration extends sfPluginConfiguration
         $this->dispatcher->connect('routing.load_configuration', array('sfOauthServerRouting', 'listenToRoutingLoadConfigurationEvent'));
       }
       
-      /*foreach (array('sfGuardUser', 'sfGuardGroup', 'sfGuardPermission', 'sfGuardRegister', 'sfGuardForgotPassword') as $module)
-      {
-        if (in_array($module, sfConfig::get('sf_enabled_modules', array())))
-        {
-          $this->dispatcher->connect('routing.load_configuration', array('sfGuardRouting', 'addRouteFor'.str_replace('sfGuard', '', $module)));
-        }
-      }*/
     }
   }
 }

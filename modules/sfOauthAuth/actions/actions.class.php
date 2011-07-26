@@ -1,6 +1,6 @@
 <?php
 	
-class oauthActions extends sfActions
+class sfOauthAuthActions extends sfActions
 {
 
 	public function preExecute()
@@ -28,11 +28,12 @@ class oauthActions extends sfActions
 	 */
 		public function executeAccessToken(sfWebRequest $request)
 	{
-
-		if ($request->getParameter('oauth_version')=='1.0')
+		$req = OAuthRequest::from_request(NULL,$request->getUri()); // To get variable in header 
+			
+		if ($req->get_parameter('oauth_version')=='1.0')
 		{
 			$oauthServer = new sfoauthserver(new sfOAuthDataStore());
-			$req = OAuthRequest::from_request();
+			$req = OAuthRequest::from_request(NULL,$request->getUri());
 
 			$q = Doctrine::getTable('sfOauthServerRequestToken')->findOneByToken($request->getParameter('oauth_token'));
 			$this->token = $oauthServer->fetch_access_token($req);
@@ -40,8 +41,8 @@ class oauthActions extends sfActions
 			if ($q->getUserId()==NULL)
 			  throw new OAuthException('Token unauthorized');
 
-			//return $this->setTemplate('token');
-			 return $this->renderText(json_encode($this->token));
+			return $this->setTemplate('token');
+			// return $this->renderText(json_encode($this->token));
 		}
 		else
 		{

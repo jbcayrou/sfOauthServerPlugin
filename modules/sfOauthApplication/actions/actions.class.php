@@ -1,6 +1,6 @@
 <?php
 
-class applicationActions extends sfActions
+class sfOauthApplicationActions extends sfActions
 {
 
   /**
