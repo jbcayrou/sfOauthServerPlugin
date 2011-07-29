@@ -52,7 +52,7 @@ class sfOauthFilter extends sfFilter
 	$consumer = $sfToken->getConsumer();
 	$consumer->increaseNumberQuery();
 	$request->setParameter('user',$user); // save this user in a parameter 'user'
-
+	$request->setParameter('consumer',$consumer); // save consumer in a parameter 'consumer'
     $credential = $sfoauth->getOauthCredential();
 
     if (null !== $credential && !$sfToken->hasCredential($credential)) // chek if the consumer is allowed to access to this action
