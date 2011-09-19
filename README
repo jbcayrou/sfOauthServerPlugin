@@ -2,9 +2,10 @@
 
 ## Introduction
 
-I am proud to present my first plugin :D !
 This plugin permits to create easily an authentication for a module or an action. This authentication works both with OAuth 1.0 and 2.0
-For instance, it allows to secure an API and control access and permissions of each cusumers (applications).
+For instance, it allows to secure an API and control access and permissions of each consumers (applications).
+
+If you find bugs or if you have some suggestions, please contact me.
 
 ## Installation
 
@@ -30,24 +31,27 @@ For instance, it allows to secure an API and control access and permissions of e
 
 
   * Enable modules
-There are three modules in this plugin : oauth, application and sfOauthAdmin
+There are four modules in this plugin : sfOauthAuth, sfOauthApplication,sfOauthDeveloper sfOauthAdmin
 
-The first one permits to exchange token and code for the authentication.
+sfOauthAuth : permits to exchange token and code for the authentication.
 
-The seconde one has just one action for the moment : authorize
+sfOauthApplication : has just one action for the moment : authorize
  It is in this action that an user accept or not an application to access to its data.
+
+sfOauthAdmin : is for developers. You can define developers for an application. For the moment they can change some parameters and see how many people use their application.
 
 The last one is just a module for the backend to manage consumers.
 
+
 You have to enabled these modules in yours applications.
-( In my case, i have three applications :  api where "oauth" is enabled, the frontend (application enabled) and the backend. )
+( In my case, i have three applications :  api where "sfOauthAuth" is enabled, the frontend ("sfOauthApplication" and "sfOauthDeveloper enabled) and the backend with "sfOauthAdmin". )
 
   * For example :
 
-         Enable the modules in settings.yml
+         Enable the modules sfOauthAuth in "settings.yml" file of api application
           all:
            .settings:
-             enabled_modules: [...,oauth]
+             enabled_modules: [...,sfOauthAuth]
 
 ## Usage
 Now to secure a module/action, just create a config file "oauth.yml" in the config repertory of the module.
@@ -72,7 +76,6 @@ for example :
 
 ## How it works 
 
-### Events
 
 This plugin uses two vendor libraries :
 
@@ -84,7 +87,9 @@ When requests from application are not good they throw exceptions. By default sy
 sfOauthServerPlugin listens exceptions (event : 'application.throw_exception') and if the type (class name) is OAuthException it treats it to show it in the good way and readable for application.
 Two formats are avaibles for the display of exceptions ( json and xml) but you can easily add an other by adding a file in /sfOauthServerPlugin/config/error/error.myformat.php
 
+
+You can find more informations about OAuth authentication steps in the repertory "doc"
+
 ## License and credits
 
-This plugin has been developed by Jean-Baptiste Cayrou and is
-licensed under the MIT license.
+This plugin has been developed by Jean-Baptiste Cayrou and is licensed under the MIT license.
