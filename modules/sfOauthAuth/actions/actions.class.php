@@ -19,8 +19,8 @@ class sfOauthAuthActions extends sfActions
 		$req = OAuthRequest::from_request(NULL,$request->getUri());
 		$this->token = $oauthServer->fetch_request_token($req);
 
-		$this->setTemplate('token');
-        return sfView::SUCCESS;
+		return $this->setTemplate('token');
+
 	}
 		
 	 /*
@@ -38,11 +38,11 @@ class sfOauthAuthActions extends sfActions
 			$q = Doctrine::getTable('sfOauthServerRequestToken')->findOneByToken($request->getParameter('oauth_token'));
 			$this->token = $oauthServer->fetch_access_token($req);
 		
-			if ($q->getUserId()==NULL)
+			if ($q->getUserId()==NULL&&$q->getScope())
 			  throw new OAuthException('Token unauthorized');
 
 			return $this->setTemplate('token');
-			// return $this->renderText(json_encode($this->token));
+
 		}
 		else
 		{

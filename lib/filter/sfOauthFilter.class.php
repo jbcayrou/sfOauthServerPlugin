@@ -26,23 +26,23 @@ class sfOauthFilter extends sfFilter
 	
 	$request  =  $this->context->getRequest();
 	
-	if ($request->getParameter('access_token',NULL)!=NULL) // OAuth 1.0
-	  {
+	if ($request->getParameter('oauth_version',NULL)=="1.0") // OAuth 1.0
+	{
 	    $oauthServer = new sfoauthserver(new sfOAuthDataStore());
 	    $req = OAuthRequest::from_request();
 	    $oauthServer->verify_request($req);
 
 		
-	  }
+	 }
 	else if ($request->getParameter('oauth_token',NULL)!=NULL) // OAuth 2.0
-	    {
+	{
 	      $oauth = new sfOauth2Server();
 	      $oauth->verifyAccessToken();
-	    }
-	    else
-	      {
+	}
+	else
+	{
 		throw new OAuthException('Unauthorized Access');
-	      }
+	}
 
 	
 	$token = $request->getParameter('access_token',$request->getParameter('oauth_token'));
@@ -51,8 +51,8 @@ class sfOauthFilter extends sfFilter
 
 	$consumer = $sfToken->getConsumer();
 	$consumer->increaseNumberQuery();
-	$request->setParameter('user',$user); // save this user in a parameter 'user'
-	$request->setParameter('consumer',$consumer); // save consumer in a parameter 'consumer'
+	$request->setParameter('sfGuardUser',$user); // save this user in a parameter 'user'
+	$request->setParameter('sfOauthConsumer',$consumer); // save consumer in a parameter 'consumer'
     $credential = $sfoauth->getOauthCredential();
 
     if (null !== $credential && !$sfToken->hasCredential($credential)) // chek if the consumer is allowed to access to this action

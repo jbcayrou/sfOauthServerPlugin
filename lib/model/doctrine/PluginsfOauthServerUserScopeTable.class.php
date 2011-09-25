@@ -48,6 +48,9 @@ class PluginsfOauthServerUserScopeTable extends Doctrine_Table
    */
   public function isApplicationAuthorized($consumerId,$userId,$scope)
   {
+	 if (!$scope) // If an application has no permission, it is automatically authorized
+		return true;
+		
     $userScope = $this->createQuery('c')->where('c.consumer_id = ?' ,$consumerId)
       ->andWhere('c.user_id = ?',$userId)
       ->fetchOne();
