@@ -31,16 +31,18 @@ If you find bugs or if you have some suggestions, please contact me.
 
 
   * Enable modules
-There are four modules in this plugin : sfOauthAuth, sfOauthApplication,sfOauthDeveloper sfOauthAdmin
+There are five modules in this plugin : sfOauthAuth, sfOauthApplication,sfOauthDeveloper sfOauthAdmin, sfOauthTest
 
 sfOauthAuth : permits to exchange token and code for the authentication.
 
 sfOauthApplication : has just one action for the moment : authorize
  It is in this action that an user accept or not an application to access to its data.
 
-sfOauthAdmin : is for developers. You can define developers for an application. For the moment they can change some parameters and see how many people use their application.
+sfOauthDeveloper : is for developers. You can define developers for an application. For the moment they can change some parameters and see how many people use their application.
 
-The last one is just a module for the backend to manage consumers.
+sfOauthAdmin : for the backend to manage consumers.
+
+sfOauthTest: examples.
 
 
 You have to enabled these modules in yours applications.
