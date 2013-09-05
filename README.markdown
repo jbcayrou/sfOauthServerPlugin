@@ -2,8 +2,7 @@
 
 ## Introduction
 
-This plugin permits to create easily an authentication for a module or an action. This authentication works both with OAuth 1.0 and 2.0
-For instance, it allows to secure an API and control access and permissions of each consumers (applications).
+This plugin allows you to create easily an authentication system for a module or an action. It works with OAuth 1.0 and 2.0 For example, it allows you to secure an API and control access and permissions of each customer (application).
 
 If you find bugs or if you have some suggestions, please contact me.
 
@@ -33,12 +32,12 @@ If you find bugs or if you have some suggestions, please contact me.
   * Enable modules
 There are five modules in this plugin : sfOauthAuth, sfOauthApplication,sfOauthDeveloper sfOauthAdmin, sfOauthTest
 
-sfOauthAuth : permits to exchange token and code for the authentication.
+sfOauthAuth : to exchange token and code for the authentication.
 
 sfOauthApplication : has just one action for the moment : authorize
- It is in this action that an user accept or not an application to access to its data.
+ It is in this action that an user accept or not an application to access to data.
 
-sfOauthDeveloper : is for developers. You can define developers for an application. For the moment they can change some parameters and see how many people use their application.
+sfOauthDeveloper : It is for developers. You can define developers for an application. For the moment they can change some parameters and see how many people use their application.
 
 sfOauthAdmin : for the backend to manage consumers.
 
